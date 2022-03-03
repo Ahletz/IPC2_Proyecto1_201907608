@@ -8,6 +8,8 @@ class Carga:
     def AbrirArchivo(self):
         archivo = filedialog.askopenfilename(title="Abrir",initialdir="C:/")
         self.direccion= archivo
+
+        return self.direccion
         
     
     #Metodo abrir la vetana con boton        

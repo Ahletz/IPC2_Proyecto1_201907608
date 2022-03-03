@@ -45,7 +45,14 @@ class ListasEnlazadas:
                 current.Siguiente = DeletedNode.Siguiente
         self.Tamaño -=1
         return DeletedNode
-        
+
+    def TL(self):
+        return self.Tamaño
+
+    
+
+
+
 
 
                 

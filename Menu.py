@@ -1,5 +1,5 @@
-from traceback import print_tb
-from numpy import minimum
+from ManejoXML import *
+
 
 from CargaArchivo import Carga
 
@@ -23,10 +23,14 @@ class Presentacion():
 
             if opcion == 1:
                 print('USTED ELIJIO LA OPCION NUMERO 1')
-                carga = Carga()
-                carga.AbrirVentana()
-                archivo = carga.direccion
-                print(archivo)
+               
+                #prueba xml 
+                
+                prueba = Datos()
+                
+                
+                prueba.Open()
+
                 continue
             elif opcion ==2:
                 print('USTED ELIJIO LA OPCION NUMERO 2')
