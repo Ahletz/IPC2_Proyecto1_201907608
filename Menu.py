@@ -28,13 +28,13 @@ class Presentacion():
                 
                 prueba = Datos()
                 
-                
                 prueba.Open()
 
                 continue
             elif opcion ==2:
                 print('USTED ELIJIO LA OPCION NUMERO 2')
                 self.minimenu()
+                
                 continue
             elif opcion == 3: 
                 print('USTED ELIJIO LA OPCION NUMERO 3')
