@@ -1,5 +1,5 @@
 from ManejoXML import *
-
+from ListasLink import *
 
 from CargaArchivo import Carga
 
@@ -22,18 +22,15 @@ class Presentacion():
             opcion = int(input())
 
             if opcion == 1:
-                print('USTED ELIJIO LA OPCION NUMERO 1')
+                print('USTED ELIJIO LA OPCION NUMERO 1\n')
                
                 #prueba xml 
-                
                 prueba = Datos()
-                
                 prueba.Open()
 
                 continue
             elif opcion ==2:
-                print('USTED ELIJIO LA OPCION NUMERO 2')
-                self.minimenu()
+                print('USTED ELIJIO LA OPCION NUMERO 2\n')
                 
                 continue
             elif opcion == 3: 
@@ -42,9 +39,11 @@ class Presentacion():
             else: 
                 print('NO INGRESO UNA OPCION VALIDA.')
 
-    #metodo para submenu de la opcion 2
-    def minimenu(self):
-        print('seleccionaste el minimenu ')
+    
+
+    
+
+        
  
                 
     
