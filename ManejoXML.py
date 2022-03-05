@@ -1,3 +1,4 @@
+from numpy import mat
 from ListasLink import *
 from CargaArchivo import Carga
 from xml.dom import minidom
@@ -35,32 +36,40 @@ class Datos:
             #envio de iformacion a lista enlazada 
         for x in range(len(nombre)):
 
-            name = nombre[x].attributes['nombre'].value
-            line = lineas[x].firstChild.data
-            colum = columnas[x].firstChild.data
-            swap= volteo[x].firstChild.data
-            switch = cambio[x].firstChild.data
+            name = nombre[x].attributes['nombre'].value #nombre del piso 
+            line = lineas[x].firstChild.data #cantidad de lineas
+            colum = columnas[x].firstChild.data #cantidad de columnas
+            swap= volteo[x].firstChild.data #costo giro 
+            switch = cambio[x].firstChild.data #costo cambio 
 
             lista.Agregar(name, line, colum, swap, switch) #agregar datos a lista principal
 
+            #agregar nombres de patrones y pisos a los que pertenecen 
             for y in range(len(patron)):
 
                 nombrepatron = patron[y].attributes['codigo'].value
                 pat = patron[y].firstChild.data
 
-                pisos.Agregar(nombrepatron)
+                pisos.Agregar(nombrepatron,name )
 
                 posx = 1
                 posy = 1
+                 #agregar los patrones y el nombre al patron que pertenecen 
                 for z in range(len(pat)):
-                    if posx <= int(line):
+                    if posx <= int(colum) and posy <= int(len(line)):
 
                         dato = pat[z]
-                        matriz.Agregar(posx, posy, dato)
+                        matriz.Agregar(posx, posy, dato, nombrepatron)
                         posx+=1
                     else:
                         posx = 1
                         posy +=1
+                        dato = pat[z]
+                        matriz.Agregar(posx, posy, dato, nombrepatron)
+                        posx+=1
+
+        matriz.Imprimir()
+        
                 
 
 
