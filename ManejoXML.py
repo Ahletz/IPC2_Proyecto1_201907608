@@ -100,7 +100,7 @@ class Datos:
             opcion = int(input())
 
             if opcion == 1:
-                print('USTED ELIJIO LA OPCION NUMERO 1\n')
+                print('USTED ELIGIO LA OPCION NUMERO 1\n')
 
                 lista.Imprimir_Nombres_Pisos()#imprimir los nombres de los pisos existentes
 
@@ -114,18 +114,27 @@ class Datos:
                 continue
             elif opcion == 2: 
 
-                print('USTED ELIJIO LA OPCION NUMERO 2\n')
+                print('USTED ELIGIO LA OPCION NUMERO 2\n')
 
                 pisos.Imprimir_nombre_codigo(pisos_eleccionado) #impresion de codigos respecto al piso
 
                 print('|| INGRESE EL NOMBRE DEL CODIGO SELECCIONADO: \n')
 
                 codigo_seleccionado = input() #ingresar codigo seleccionado
+                print('')
 
                 pisos.Codigo_Seleccionado(pisos_eleccionado,codigo_seleccionado)
 
+                matriz.Imprimir(codigo_seleccionado)
+                print('')
+
 
             elif opcion == 3: 
+                print('USTED ELGJIO LA OPCION NUMERO 4 \n')
+                print('INGRESE EL NUEVO PATRON : ')
+                nuevo_patron = input()
+
+            elif opcion == 4: 
                 print('REDIRIGUIENDO A MENU PRINCIPAL...\n')
                 menu = False
             else: 

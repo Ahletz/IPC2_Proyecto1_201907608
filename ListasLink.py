@@ -137,11 +137,11 @@ class ListasEnlazadaN:
         while puntero != None:
             if nombre_piso == puntero.nombrepiso: #condicinal para encontrar el nombre del codigo correspondiente al piso 
                 print(str(indice)+'. '+puntero.nombre) #impresion del nombre del codigo en el piso correspondiente
-                puntero = puntero.Siguiente
                 indice +=1
+                puntero = puntero.Siguiente
             else:
-                break
-        print('')
+                puntero = puntero.Siguiente
+        
     
     def Codigo_Seleccionado(self,nombrepiso, nombre_codigo):
 
@@ -151,36 +151,23 @@ class ListasEnlazadaN:
 
         encontrado = False
 
-        #ver si el nobre del piso no se encuentra vacio
-        if len(nombrepiso) == 0:
-            print('PRIMERO DEBE SELECCIONAR UN PISO VALIDO. ')
-            encontrado = True
-        else: 
+        while encontrado == False: 
 
-            while encontrado == False: 
+            if puntero != None:
 
-                if puntero != None:
+                if nombrepiso == puntero.nombrepiso and nombre_codigo == puntero.nombre:
 
-                    if nombrepiso == puntero.nombrepiso and nombre_codigo == puntero.nombre:
+                    print('|| CODIGO SELECCIONADO CORRECTAMENTE! \n')
 
-                        print('|| CODIGO SELECCIONADO CORRECTAMENTE! \n')
-
-                        encontrado = True
-                    else:
-                        puntero = puntero.Siguiente
-                else:
-                    print('|| EL CODIGO INGRESADO NO ES VALIDO.')
                     encontrado = True
+                else:
+                    puntero = puntero.Siguiente
+            else:
+                print('|| EL CODIGO INGRESADO NO ES VALIDO.')
+                encontrado = True
 
 
         
-
-
-
-
-
-
-
 
 
 # lista con los codigos contiene cada piso 
@@ -223,28 +210,40 @@ class ListasEnlazadaM:
     def TL(self): #tamaño de la lista
         return self.Tamaño
     
-    def Imprimir(self):
+    def Imprimir(self, Nombre_codigo):
 
-        matriz ='{'
+        patron = '' #variable que contendra los datos de la matriz 
+        matriz = '{' #variable con la matriz 
         puntero = self.Primero
+        self.nombre_codigo = Nombre_codigo
 
         while puntero != None:
-            modu = puntero.dato
-            x =str(puntero.posicionx) 
-            y = str(puntero.posiciony)
-            matriz +='['
-            matriz += x
-            matriz +=','
-            matriz +=y
-            matriz +=' -'
-            matriz +=modu
-            matriz +=']'
-            matriz +=' '
-            puntero = puntero.Siguiente
-            
-        matriz +='}'
 
+            if Nombre_codigo == puntero.codigo:
+                patron += puntero.dato
+
+                matriz +='['
+                matriz +=str(puntero.posicionx)
+                matriz +=', '
+                matriz +=str(puntero.posiciony)
+                matriz +=' - '
+                matriz +=puntero.dato
+                matriz +='] '
+
+                puntero = puntero.Siguiente
+            else: 
+                puntero= puntero.Siguiente
+        matriz +='}'
+        print(patron)
+        print('')
+        print('DE MATRIZ: \n')
         print(matriz)
+
+            
+
+
+
+
 
         
             
