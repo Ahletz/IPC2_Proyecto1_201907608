@@ -1,5 +1,9 @@
 
 #clase para la creacion del nodo de la lista enlazada 
+from textwrap import indent
+from xml.etree.ElementInclude import include
+
+
 class Nodo:
 
     def __init__(self, nombre, fila, columna, volteo, cambio):
@@ -55,6 +59,36 @@ class ListasEnlazadas:
     def TL(self): #tamaño de la lista
         return self.Tamaño
 
+    def Imprimir_Nombres_Pisos(self):
+
+        puntero = self.Primero
+        indice = 1
+
+        while puntero != None:
+            print(str(indice)+'. '+puntero.nombre)
+            puntero = puntero.Siguiente
+            indice +=1
+        print('')
+    
+    def Piso_seleccionado(self, piso_seleccionado):
+
+        puntero = self.Primero
+        self.piso_seleccionado = piso_seleccionado
+        encontrado = False
+
+        while encontrado ==False:
+            if puntero != None:
+                if piso_seleccionado == puntero.nombre:
+                    print('|| PISO SELECCIONADO CORRECTAMENTE! \n')
+                    encontrado = True
+                else: 
+                    puntero = puntero.Siguiente
+            else:
+                print('|| EL PISO QUE INGRESO NO ES VALIDO. \n')
+                encontrado = True
+
+    
+
 #lista con los nombres de los codigos que contiene cada piso 
 class NodoN:
 
@@ -92,6 +126,62 @@ class ListasEnlazadaN:
 
     def TL(self): #tamaño de la lista
         return self.Tamaño
+
+    def Imprimir_nombre_codigo(self, nombre_piso):
+
+        puntero = self.Primero
+        indice = 1
+
+        self.nombre_piso = nombre_piso #nombr del piso del que se seleccinara el patron 
+
+        while puntero != None:
+            if nombre_piso == puntero.nombrepiso: #condicinal para encontrar el nombre del codigo correspondiente al piso 
+                print(str(indice)+'. '+puntero.nombre) #impresion del nombre del codigo en el piso correspondiente
+                puntero = puntero.Siguiente
+                indice +=1
+            else:
+                break
+        print('')
+    
+    def Codigo_Seleccionado(self,nombrepiso, nombre_codigo):
+
+        puntero = self.Primero
+        self.nombrepiso = nombrepiso
+        self.nombre_codigo = nombre_codigo
+
+        encontrado = False
+
+        #ver si el nobre del piso no se encuentra vacio
+        if len(nombrepiso) == 0:
+            print('PRIMERO DEBE SELECCIONAR UN PISO VALIDO. ')
+            encontrado = True
+        else: 
+
+            while encontrado == False: 
+
+                if puntero != None:
+
+                    if nombrepiso == puntero.nombrepiso and nombre_codigo == puntero.nombre:
+
+                        print('|| CODIGO SELECCIONADO CORRECTAMENTE! \n')
+
+                        encontrado = True
+                    else:
+                        puntero = puntero.Siguiente
+                else:
+                    print('|| EL CODIGO INGRESADO NO ES VALIDO.')
+                    encontrado = True
+
+
+        
+
+
+
+
+
+
+
+
 
 # lista con los codigos contiene cada piso 
 class NodoM:

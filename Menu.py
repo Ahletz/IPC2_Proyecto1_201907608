@@ -16,8 +16,7 @@ class Presentacion():
 
             print('SELECCIONE UNA DE LAS SIGUIENTES OPCIONES: ')
             print('|| 1. CARGAR ARCHIVO.                 ||')
-            print('|| 2. SELECCIONAR UN PATRON Y PISO.   ||')
-            print('|| 3. SALIR.                          ||')
+            print('|| 2. SALIR.                          ||')
 
             opcion = int(input())
 
@@ -29,11 +28,7 @@ class Presentacion():
                 prueba.Open()
 
                 continue
-            elif opcion ==2:
-                print('USTED ELIJIO LA OPCION NUMERO 2\n')
-                
-                continue
-            elif opcion == 3: 
+            elif opcion == 2: 
                 print('USTED ELIJIO LA OPCION NUMERO 3')
                 ciclo = False
             else: 
